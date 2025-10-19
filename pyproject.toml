@@ -1,24 +1,49 @@
 [project]
-name = "isn0vtrade"
+name = "isn0v-trade"
 version = "0.1.0"
 description = ""
 authors = [
     {name = "Isn0v",email = "isnovikov0@gmail.com"}
 ]
-readme = "README.md"
-requires-python = ">=3.12,<3.14"
+
+requires-python = ">=3.12,<3.15"
 dependencies = [
     "ccxt (>=4.5.4,<5.0.0)",
     "yfinance (>=0.2.66,<0.3.0)",
     "pandas (>=2.3.3,<3.0.0)",
     "mplfinance (>=0.12.10b0,<0.13.0)",
     "matplotlib (>=3.10.6,<4.0.0)",
-    "torch (>=2.8.0,<3.0.0)",
     "transformers (>=4.57.0,<5.0.0)",
-    "scikit-learn (>=1.7.2,<2.0.0)"
+    "scikit-learn (>=1.7.2,<2.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "ipywidgets (>=8.1.7,<9.0.0)",
+    "tensorboard (>=2.20.0,<3.0.0)",
+    "accelerate (>=1.10.1,<2.0.0)",
+    "ipympl (>=0.9.8,<0.10.0)",
+    "ipython (>=9.6.0,<10.0.0)",
+    "jupyter (>=1.1.1,<2.0.0)",
+    "torch (>=2.9.0,<3.0.0)",
+    "torchvision (>=0.24.0,<0.25.0)",
+    "torchaudio (>=2.9.0,<3.0.0)"
 ]
 
+[tool.poetry]
+package-mode = false
 
+[[tool.poetry.source]]
+name = "pytorch_cuda"
+url = "https://download.pytorch.org/whl/cu130"
+priority = "explicit"
+
+
+[tool.poetry.dependencies]
+torch = {source = "pytorch_cuda"}
+torchvision = {source = "pytorch_cuda"}
+torchaudio = {source = "pytorch_cuda"}
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^7.0.1"
+
